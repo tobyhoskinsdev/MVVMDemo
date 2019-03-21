@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activities.MainActivity">
+
+    <data>
+        <variable
+            name="loginViewModel"
+            type="examples.aaronhoskins.com.mvvmdemo.viewmodel.LoginViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etUserEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{(editable)-> loginViewModel.OnEmailTextChanged(editable)}"
+            android:hint="Enter User Email"/>
+
+        <TextView
+            android:id="@+id/tvEmailValidationStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{loginViewModel.emailStatus}"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{(editable)-> loginViewModel.OnPasswordTextChanged(editable)}"
+            android:hint="Enter User Password"/>
+
+        <TextView
+            android:id="@+id/tvPasswordValidationStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{loginViewModel.passwordStatus}"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"/>
+
+    </LinearLayout>
+</layout>
