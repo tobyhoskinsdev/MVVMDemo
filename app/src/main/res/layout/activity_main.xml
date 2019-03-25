@@ -21,7 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:afterTextChanged="@{(editable)-> loginViewModel.OnEmailTextChanged(editable)}"
-            android:hint="Enter User Email"/>
+            android:hint="Enter User Email"
+            />
 
         <TextView
             android:id="@+id/tvEmailValidationStatus"
@@ -47,6 +48,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"/>
+
+        <ImageView
+            android:id="@+id/imgUserImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="50dp"
+            app:imageUrl = "@{loginViewModel.imageUrl}"/>
 
     </LinearLayout>
 </layout>
